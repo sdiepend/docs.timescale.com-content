@@ -193,7 +193,7 @@ use a PostgreSQL docker image that has both Pg_Prometheus and TimescaleDB
 extensions installed: https://hub.docker.com/r/timescale/pg_prometheus.
 
 ```bash
-docker run --network prometheus_timescale_network  --name pg_prometheus -d -p 5432:5432 timescale/pg_prometheus:master postgres \
+docker run --network prometheus_timescale_network  --name pg_prometheus -d -p 5432:5432 timescale/pg_prometheus:latest postgres \
      -csynchronous_commit=off
 ```
 
@@ -262,7 +262,7 @@ spin up all the docker containers together (Make sure you have `prometheus.yml` 
 version: '2.1'
 services:
  pg_prometheus:
-   image: timescale/pg_prometheus:master
+   image: timescale/pg_prometheus:latest
    command: -c synchronous_commit=OFF
    container_name: pg_prometheus
    healthcheck:
